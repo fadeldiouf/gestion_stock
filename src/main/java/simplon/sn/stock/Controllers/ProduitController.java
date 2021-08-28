@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.tomcat.util.file.ConfigurationSource.Resource;
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +37,8 @@ import simplon.sn.stock.service.ProduitService;
 public class ProduitController {
 	@Autowired
 	private ProduitService produitService;
-	@Autowired ProduitRepository prRepository;
+	@Autowired 
+	private ProduitRepository prRepository;
 	private final Path root = Paths.get(System.getProperty("user.home")+"/stock/images/");
 	
 	@GetMapping("/all")
@@ -72,8 +72,8 @@ public class ProduitController {
 		}	 
 		
 	}
-	@PostMapping("/save")
-	public Produit createProduit(@Validated @RequestParam MultipartFile file, @PathVariable("produit") String produit)
+	@PostMapping("/saveproduit")
+	public Produit createProduit(@Validated @RequestParam MultipartFile file, @RequestParam String produit)
 			throws JsonParseException, org.codehaus.jackson.map.JsonMappingException, IOException { 
 		Produit produit1= new ObjectMapper().readValue(produit, Produit.class);
 		SimpleDateFormat forme = new SimpleDateFormat("dd-MM-yy HH:mm:ss");
@@ -83,7 +83,6 @@ public class ProduitController {
 		try {
 			Files.copy(file.getInputStream(), this.root.resolve(filename));
 			return prRepository.save(produit1);
-			
 		} catch (Exception e) {
 			throw new RuntimeException("Imposible de Stocker le fichier"+ e.getMessage());
 		}

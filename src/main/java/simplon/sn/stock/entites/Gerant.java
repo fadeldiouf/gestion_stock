@@ -16,7 +16,10 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 //@NoArgsConstructor @AllArgsConstructor @ToString
 //@Getter
 //@Setter
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class , property = "id")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id",
+        scope=Gerant.class)
 public class Gerant  implements Serializable{
 
 	/**
@@ -33,12 +36,26 @@ public class Gerant  implements Serializable{
 	private String civilite;
 	private String genre;
 	private String cni;
-	@OneToOne(mappedBy = "gerant")
-    private Magasin magasin;
+//	@OneToOne(mappedBy = "gerant")
+//    private Magasin magasin;
 	public Gerant() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public Gerant(String nom, String prenom, String addresse, String telephone, String email, String civilite,
+			String genre, String cni) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.addresse = addresse;
+		this.telephone = telephone;
+		this.email = email;
+		this.civilite = civilite;
+		this.genre = genre;
+		this.cni = cni;
+	}
+
 	public Gerant(String nom, String prenom, String addresse, String telephone, String email, String civilite,
 			String genre, String cni, Magasin magasin) {
 		super();
@@ -50,7 +67,7 @@ public class Gerant  implements Serializable{
 		this.civilite = civilite;
 		this.genre = genre;
 		this.cni = cni;
-		this.magasin = magasin;
+//		this.magasin = magasin;
 	}
 	public Long getId() {
 		return id;
@@ -106,13 +123,13 @@ public class Gerant  implements Serializable{
 	public void setCni(String cni) {
 		this.cni = cni;
 	}
-	public Magasin getMagasin() {
-		return magasin;
-	}
-	
-	public void setMagasin(Magasin magasin) {
-		this.magasin = magasin;
-	}
+//	public Magasin getMagasin() {
+//		return magasin;
+//	}
+//	
+//	public void setMagasin(Magasin magasin) {
+//		this.magasin = magasin;
+//	}
 	
 
 }

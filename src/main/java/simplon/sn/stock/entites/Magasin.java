@@ -83,7 +83,6 @@ public class Magasin  implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	@JsonIdentityReference
 	public Gerant getGerant() {
 		return gerant;
 	}

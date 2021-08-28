@@ -40,11 +40,12 @@ public class Categorie implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Categorie(String nom, String description, Collection<Produit> produits) {
+	
+
+	public Categorie(String nom, String description) {
 		super();
 		this.nom = nom;
 		this.description = description;
-		this.produits = produits;
 	}
 	public Long getId() {
 		return id;

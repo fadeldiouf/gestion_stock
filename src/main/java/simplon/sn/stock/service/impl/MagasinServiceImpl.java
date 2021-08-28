@@ -6,7 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import simplon.sn.stock.dao.GerantRepository;
 import simplon.sn.stock.dao.MagasinRepository;
+import simplon.sn.stock.entites.Gerant;
 import simplon.sn.stock.entites.Magasin;
 import simplon.sn.stock.service.MagasinService;
 
@@ -15,6 +17,8 @@ public class MagasinServiceImpl implements MagasinService {
 	@Autowired
 	private MagasinRepository magasinRepository;
 
+	@Autowired
+	private GerantRepository gerantRepository;
 	@Override
 	public List<Magasin> findMagasins() {
 		// TODO Auto-generated method stub
@@ -24,6 +28,9 @@ public class MagasinServiceImpl implements MagasinService {
 	@Override
 	public Magasin create(Magasin m) {
 		// TODO Auto-generated method stub
+		
+		Gerant g = gerantRepository.getById(m.getGerant().getId());
+		m.setGerant(g);
 		return magasinRepository.save(m);
 	}
 
