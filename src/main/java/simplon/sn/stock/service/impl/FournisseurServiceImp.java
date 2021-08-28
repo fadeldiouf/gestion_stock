@@ -27,7 +27,7 @@ public class FournisseurServiceImp  implements FournisseurService{
 	}
 
 	@Override
-	public Boolean update(Fournisseur f) {
+	public Boolean update(Long id,Fournisseur f) {
 		// TODO Auto-generated method stub
 		Boolean updated= true;
 		Optional<Fournisseur> fournisseur = fournisseurRepository.findById(f.getId());

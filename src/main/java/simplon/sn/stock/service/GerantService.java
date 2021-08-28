@@ -11,7 +11,7 @@ public interface GerantService {
 	
 	public Gerant create (Gerant g);
 	
-	public Boolean update (Gerant g);
+	public Boolean update (Long id,Gerant g);
 	
 	public Optional<Gerant> findById(Long id);
 	

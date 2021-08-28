@@ -29,7 +29,7 @@ public class GerantSerciceImpl implements GerantService {
 	}
 
 	@Override
-	public Boolean update(Gerant g) {
+	public Boolean update(Long id, Gerant g) {
 		Boolean updated = true;
 
 		Optional<Gerant> gerant = gerantRepository.findById(g.getId());

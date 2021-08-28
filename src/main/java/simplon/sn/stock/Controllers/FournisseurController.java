@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import simplon.sn.stock.entites.Fournisseur;
 import simplon.sn.stock.service.FournisseurService;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/fournisseurs")
 public class FournisseurController {
@@ -30,9 +31,9 @@ public class FournisseurController {
 	public Fournisseur savefounisseur(@RequestBody Fournisseur f) {
 		return fournisseurService.create(f);
 	}
-	@PutMapping("/update")
-	public Boolean updatefournisseur(@RequestBody Fournisseur f) {
-		return fournisseurService.update(f);
+	@PutMapping("/update/{id}")
+	public Boolean updatefournisseur(@PathVariable ("id") Long id, @RequestBody Fournisseur f) {
+		return fournisseurService.update(id,f);
 	}
 	@GetMapping("/{id}")
 	public Optional<Fournisseur> findById(@PathVariable("id") Long id){

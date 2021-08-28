@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import simplon.sn.stock.entites.Gerant;
 import simplon.sn.stock.service.GerantService;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/gerants")
 public class GerantController  {
@@ -37,10 +38,10 @@ private GerantService gerantService;
      	 
       }
       
-      @PutMapping("/update")
-      public Boolean updateGerants(@RequestBody Gerant g){
+      @PutMapping("/update/{id}")
+      public Boolean updateGerants(@PathVariable ("id") Long id, @RequestBody Gerant g){
      	 
- 		return gerantService.update(g);
+ 		return gerantService.update(id,g);
      	 
       }
       

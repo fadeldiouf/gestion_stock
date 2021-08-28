@@ -1,5 +1,6 @@
 package simplon.sn.stock.Controllers;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,6 +22,7 @@ import simplon.sn.stock.service.CategorieService;
 public class CategorieController {
 	@Autowired
 	private CategorieService categorieService;
+	
 	@GetMapping("/all")
 	public List<Categorie> getAllCategorie(){
 		return categorieService.findAllCategorie();
@@ -30,12 +32,13 @@ public class CategorieController {
 	public Categorie savecategorie (@RequestBody Categorie c ) {
 		return categorieService.create(c);
 	}
-	@PutMapping("/update")
-	public Categorie updatecategorie (@RequestBody Categorie c) {
-		return categorieService.create(c);
+	@PutMapping("/update/{id}")
+	public Boolean updatecategorie (@PathVariable("id") Long id, @RequestBody Categorie c) {
+		return categorieService.update(id, c);
 	}
 	@GetMapping("/{id}")
 	public Optional<Categorie> findById(@PathVariable("id") Long id){
 		return categorieService.findById(id);
 	}
+	
 }

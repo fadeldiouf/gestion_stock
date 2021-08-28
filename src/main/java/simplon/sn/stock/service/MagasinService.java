@@ -10,7 +10,7 @@ public interface MagasinService {
 	
 	public Magasin create(Magasin m);
 	
-	public Boolean update(Magasin m);
+	public Boolean update(Long id, Magasin m);
 	
 	public Optional<Magasin> findById(Long id);
 	

@@ -11,7 +11,7 @@ public interface FournisseurService  {
 	
 	public Fournisseur create(Fournisseur f);
 	
-	public Boolean update (Fournisseur f);
+	public Boolean update (Long id,Fournisseur f);
 	
 	public Optional<Fournisseur> findById(Long id);
 }

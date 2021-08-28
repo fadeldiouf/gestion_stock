@@ -26,7 +26,7 @@ public class CategorieServiceImp implements CategorieService{
 	}
 
 	@Override
-	public Boolean update(Categorie c) {
+	public Boolean update(Long id, Categorie c) {
 		// TODO Auto-generated method stub
 		Boolean updated = true;
 		Optional<Categorie> categorie= categorieRepository.findById(c.getId());

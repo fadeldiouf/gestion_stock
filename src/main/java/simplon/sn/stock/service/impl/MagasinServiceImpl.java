@@ -28,7 +28,7 @@ public class MagasinServiceImpl implements MagasinService {
 	}
 
 	@Override
-	public Boolean update(Magasin m) {
+	public Boolean update(Long id,Magasin m) {
 		// TODO Auto-generated method stub
 		Boolean updated=true;
 		Optional<Magasin> magasin= magasinRepository.findById(m.getId());

@@ -10,8 +10,9 @@ public interface CategorieService {
 	
 	public Categorie create (Categorie c);
 	
-	public Boolean update (Categorie c);
+	public Boolean update (Long id,Categorie c);
 	
 	public Optional< Categorie> findById(Long id);
+
 
 }
