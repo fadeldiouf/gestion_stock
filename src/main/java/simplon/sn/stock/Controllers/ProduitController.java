@@ -72,7 +72,7 @@ public class ProduitController {
 		}	 
 		
 	}
-	@PostMapping("/save")
+	@PostMapping("/savePhoto")
 	public Produit createProduit(@Validated @RequestParam MultipartFile file, @PathVariable("produit") String produit)
 			throws JsonParseException, org.codehaus.jackson.map.JsonMappingException, IOException { 
 		Produit produit1= new ObjectMapper().readValue(produit, Produit.class);

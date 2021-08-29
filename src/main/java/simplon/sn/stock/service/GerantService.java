@@ -16,4 +16,5 @@ public interface GerantService {
 	public Optional<Gerant> findById(Long id);
 	
 
+	public List<Gerant> findGerantsNotMagasin();
 }

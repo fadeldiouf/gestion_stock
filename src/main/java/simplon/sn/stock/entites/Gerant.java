@@ -33,7 +33,7 @@ public class Gerant  implements Serializable{
 	private String civilite;
 	private String genre;
 	private String cni;
-	@OneToOne(mappedBy = "gerant")
+	@OneToOne(targetEntity=Magasin.class,mappedBy = "gerant")
     private Magasin magasin;
 	public Gerant() {
 		super();
