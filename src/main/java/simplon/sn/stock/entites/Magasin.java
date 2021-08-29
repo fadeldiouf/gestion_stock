@@ -1,6 +1,7 @@
 package simplon.sn.stock.entites;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
@@ -31,14 +33,13 @@ public class Magasin  implements Serializable{
 	private String addresse;
 	private String telephone;
 	private String email;
-	@OneToOne
-	@JoinColumn(name = "gerant_id")
-	private Gerant gerant;
+	@OneToMany(mappedBy = "magasin")
+	private  Collection<Gerant>  gerant;
 	public Magasin() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Magasin(String nom, Date date, String addresse, String telephone, String email, Gerant gerant) {
+	public Magasin(String nom, Date date, String addresse, String telephone, String email, Collection<Gerant> gerant) {
 		super();
 		this.nom = nom;
 		this.date = date;
@@ -83,10 +84,11 @@ public class Magasin  implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Gerant getGerant() {
+	@JsonIdentityReference
+	public Collection<Gerant> getGerant() {
 		return gerant;
 	}
-	public void setGerant(Gerant gerant) {
+	public void setGerant(Collection<Gerant> gerant) {
 		this.gerant = gerant;
 	}
 	

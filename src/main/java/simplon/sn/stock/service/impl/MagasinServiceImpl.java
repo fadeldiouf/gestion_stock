@@ -29,8 +29,6 @@ public class MagasinServiceImpl implements MagasinService {
 	public Magasin create(Magasin m) {
 		// TODO Auto-generated method stub
 		
-		Gerant g = gerantRepository.getById(m.getGerant().getId());
-		m.setGerant(g);
 		return magasinRepository.save(m);
 	}
 

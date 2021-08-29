@@ -40,11 +40,11 @@ public class GestionStockApplication implements CommandLineRunner {
 		configuration.exposeIdsFor(Magasin.class);
 //		configuration.exposeIdsFor(Produit.class);
 //		configuration.exposeIdsFor(Categorie.class);
-//		Categorie categorie=(new Categorie("sim", "sim"));
-		Gerant gerant= (new Gerant("fadel", "ndeya", null, null, null, null, null, null));
-		gerantRepository.save(gerant);
-		Magasin magasin= (new Magasin("touba", null, null, null, null, gerant));
-		magasinRepository.save(magasin);
+////		Categorie categorie=(new Categorie("sim", "sim"));
+//		Gerant gerant= (new Gerant("fadel", "ndeya", null, null, null, null, null, null));
+//		gerantRepository.save(gerant);
+//		Magasin magasin= (new Magasin("touba", null, null, null, null, gerant));
+//		magasinRepository.save(magasin);
 //		
 //		categorieRepository.save(categorie);
 //		produitRepository.save(new Produit("prod", "prod", null, null, null, categorie, null));
