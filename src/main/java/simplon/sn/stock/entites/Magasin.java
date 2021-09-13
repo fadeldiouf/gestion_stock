@@ -33,8 +33,14 @@ public class Magasin  implements Serializable{
 	private String addresse;
 	private String telephone;
 	private String email;
+<<<<<<< HEAD
 	@OneToMany(mappedBy = "magasin")
 	private  Collection<Gerant>  gerant;
+=======
+	@OneToOne(targetEntity=Gerant.class)
+	@JoinColumn(name = "gerant_id")
+	private Gerant gerant;
+>>>>>>> 7caaa03137d871f8e72d775474b26e72ead7731d
 	public Magasin() {
 		super();
 		// TODO Auto-generated constructor stub

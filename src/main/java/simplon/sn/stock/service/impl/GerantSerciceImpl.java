@@ -54,4 +54,10 @@ public class GerantSerciceImpl implements GerantService {
 		
 	}
 
+	@Override
+	public List<Gerant> findGerantsNotMagasin() {
+		// TODO Auto-generated method stub
+		return gerantRepository.gerantsNotMagasin();
+	}
+
 }

@@ -9,10 +9,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
+<<<<<<< HEAD
+=======
+import javax.servlet.ServletContext;
+
+>>>>>>> 7caaa03137d871f8e72d775474b26e72ead7731d
 import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.UrlResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,9 +41,17 @@ import simplon.sn.stock.service.ProduitService;
 public class ProduitController {
 	@Autowired
 	private ProduitService produitService;
+<<<<<<< HEAD
 	@Autowired 
 	private ProduitRepository prRepository;
+=======
+	@Autowired
+	ProduitRepository prRepository;
+>>>>>>> 7caaa03137d871f8e72d775474b26e72ead7731d
 	private final Path root = Paths.get(System.getProperty("user.home")+"/stock/images/");
+	@Autowired
+	ServletContext context;
+	
 	
 	@GetMapping("/all")
 	public List<Produit> getAllproduit(){
@@ -60,20 +72,22 @@ public class ProduitController {
 	public Optional<Produit> findById(@PathVariable ("id") Long id){
 		return produitService.findById(id);
 	}
-	@GetMapping("/photo/{filename:.+}")
-	public byte[] getFileByname (@PathVariable String filename) throws IOException {
-		Path file= root.resolve(filename);
-		UrlResource resource=new UrlResource(file.toUri());
-		if(resource.exists()||resource.isReadable()) {
-			return Files.readAllBytes(file);
-		}
-		else {
-			throw new RuntimeException("imposible de lire la photo");	
-		}	 
+	@GetMapping("/photo/{id}")
+	public byte[] getIamges (@PathVariable ("id") Long id) throws IOException {
+		Produit produit= prRepository.findById(id).get();
 		
+			return Files.readAllBytes(Paths.get(context.getRealPath("/images/")+produit.getPhoto()));
+		}
+		
+<<<<<<< HEAD
 	}
 	@PostMapping("/saveproduit")
 	public Produit createProduit(@Validated @RequestParam MultipartFile file, @RequestParam String produit)
+=======
+		
+	@PostMapping("/saveProduit")
+	public Produit createProduit(@Validated @RequestParam MultipartFile file, @PathVariable("produit") String produit)
+>>>>>>> 7caaa03137d871f8e72d775474b26e72ead7731d
 			throws JsonParseException, org.codehaus.jackson.map.JsonMappingException, IOException { 
 		Produit produit1= new ObjectMapper().readValue(produit, Produit.class);
 		SimpleDateFormat forme = new SimpleDateFormat("dd-MM-yy HH:mm:ss");

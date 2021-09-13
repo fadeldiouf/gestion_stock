@@ -51,4 +51,11 @@ private GerantService gerantService;
  		return gerantService.findById(id);
      	 
       }
+      
+      @GetMapping("/notMagasins")
+      public List<Gerant> getAllGerantsNotMagasin(){
+     	 
+ 		return gerantService.findGerantsNotMagasin();
+     	 
+      }
 }
