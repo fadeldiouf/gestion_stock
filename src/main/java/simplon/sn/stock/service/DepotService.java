@@ -11,7 +11,7 @@ public interface DepotService {
 	
 	public Depot create (Depot d);
 	
-	public Boolean update(Depot d);
+	public Boolean update(Long id ,Depot d);
 	
 	public Optional<Depot> findById(Long id);
 }

@@ -34,6 +34,7 @@ public class Produit implements Serializable {
 	private String nom;
 	private String description;
 	private Double prixunitaire;
+	private Long  quantite_stock;
 	private Boolean disponible=true;
 	private String photo;
 	@ManyToOne
