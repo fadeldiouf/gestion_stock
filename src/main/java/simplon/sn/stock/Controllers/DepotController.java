@@ -31,9 +31,9 @@ public class DepotController {
 		return depotService.create(d);
 	}
 	
-	@PutMapping("/update")
-	public Boolean updatedepot(@RequestBody Depot d) {
-		return depotService.update(d);
+	@PutMapping("/update/{id}")
+	public Boolean updatedepot(@PathVariable ("id") Long id, @RequestBody Depot d) {
+		return depotService.update(id,d);
 	}
 	
 	@GetMapping("/{id}")

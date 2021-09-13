@@ -26,7 +26,7 @@ DepotRepository depotRepository;
 	}
 
 	@Override
-	public Boolean update(Depot d) {
+	public Boolean update(Long id, Depot d) {
 		// TODO Auto-generated method stub
 		Boolean update= true;
 		Optional<Depot> depot = depotRepository.findById(d.getId());

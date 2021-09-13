@@ -26,7 +26,7 @@ private ProduitRepository produitRepository;
 	}
 
 	@Override
-	public Boolean update(Produit p) {
+	public Boolean update(Long id, Produit p ) {
 		// TODO Auto-generated method stub
 		Boolean updated= true;
 		Optional<Produit> produit= produitRepository.findById(p.getId());

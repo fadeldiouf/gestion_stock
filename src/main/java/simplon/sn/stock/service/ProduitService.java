@@ -10,7 +10,7 @@ public interface ProduitService {
 	
 	public Produit create (Produit p);
 	
-	public Boolean update (Produit p);
+	public Boolean update (Long id, Produit p );
 	
 	public Optional< Produit> findById(Long id);
 	
